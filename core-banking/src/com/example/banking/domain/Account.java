@@ -1,6 +1,6 @@
 package com.example.banking.domain;
 
-public class Account { // encapsulation: [data + methods]
+public class Account extends Object { // encapsulation: [data + methods]
 	// Members
 	// 1. attribute/state/data/property
 	// Information Hiding Principle
@@ -54,6 +54,11 @@ public class Account { // encapsulation: [data + methods]
 		this.balance = this.balance - amount;		
 		assert this.balance >= 0;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Account [iban=" + iban + ", balance=" + balance + "]";
 	}
 
 }
