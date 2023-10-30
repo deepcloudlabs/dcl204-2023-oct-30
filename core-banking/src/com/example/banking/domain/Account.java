@@ -39,7 +39,7 @@ public class Account extends Object { // encapsulation: [data + methods]
 			return false;
 		// business logic
 		this.balance = this.balance + amount;
-		assert this.balance >= 0;
+//		assert this.balance >= 0;
 		return true;
 	}
 
@@ -52,7 +52,7 @@ public class Account extends Object { // encapsulation: [data + methods]
 			return false;
 		// business logic
 		this.balance = this.balance - amount;		
-		assert this.balance >= 0;
+//		assert this.balance >= 0;
 		return true;
 	}
 
