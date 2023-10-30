@@ -1,0 +1,4 @@
+Object-Oriented Programming
+1. Class & Object: Encapsulation + Information Hiding
+2. Inheritance: Re-usability
+3. Polymorphism: Agility
