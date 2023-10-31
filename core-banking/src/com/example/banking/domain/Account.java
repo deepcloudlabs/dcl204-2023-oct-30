@@ -5,8 +5,8 @@ public class Account extends Object { // encapsulation: [data + methods]
 	// 1. attribute/state/data/property
 	// Information Hiding Principle
 	private String iban;
-	private double balance;
-
+	protected double balance;
+	int accountStatus; // default permission -> package private
 	// 2. Methods
 	// I) Constructor -> object
 	// Constructor Overloading
