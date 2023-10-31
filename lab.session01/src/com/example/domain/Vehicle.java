@@ -1,11 +1,14 @@
 package com.example.domain;
 
+import java.math.BigDecimal;
+
 public class Vehicle {
-	private final double capacity;
-	private double currentLoad;
+	private final BigDecimal capacity;
+	private BigDecimal currentLoad;
 
 	public Vehicle(double capacity) {
-		this.capacity = capacity;
+		this.capacity = BigDecimal.valueOf(capacity);
+		this.currentLoad = BigDecimal.ZERO;
 	}
 
 	// information hiding
@@ -14,7 +17,7 @@ public class Vehicle {
 	// loadBox(weight), unloadBox(weight)
 	// toString
 	public double getCurrentLoad() {
-		return currentLoad;
+		return currentLoad.doubleValue();
 	}
 
 	public boolean load(double weight) {
@@ -22,10 +25,10 @@ public class Vehicle {
 		if (weight <= 0)
 			return false;
 		// business rule
-		if (this.currentLoad + weight > this.capacity)
+		if (this.currentLoad.doubleValue() + weight > this.capacity.doubleValue())
 			return false;
 		// business logic
-		this.currentLoad += weight;
+		this.currentLoad = this.currentLoad.add(BigDecimal.valueOf(weight));
 		return true;
 	}
 
@@ -34,10 +37,10 @@ public class Vehicle {
 		if (weight <= 0)
 			return false;
 		// business rule
-		if (weight > this.currentLoad)
+		if (weight > this.currentLoad.doubleValue())
 			return false;
 		// business logic
-		this.currentLoad -= weight;
+		this.currentLoad = this.currentLoad.subtract(BigDecimal.valueOf(weight));
 		return true;
 	}
 
