@@ -1,14 +1,11 @@
 package com.example.domain;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -22,8 +19,8 @@ class VehicleTest {
 		boolean result = vehicle.load(weight);
 		assertAll(
 				() -> assertTrue(result),
-				() -> assertTrue(currentLoad,vehicle.getCurrentLoad())
-				);
+				() -> assertEquals(currentLoad,vehicle.getCurrentLoad())
+		);
 	}
 
 	@DisplayName("loading weight over the capacity should return false")
@@ -34,8 +31,21 @@ class VehicleTest {
 		boolean result = vehicle.load(weight);
 		assertAll(
 				() -> assertFalse(result),
-				() -> assertTrue(0,vehicle.getCurrentLoad())
+				() -> assertEquals(0,vehicle.getCurrentLoad())
 		);
 	}
 	
+	@ParameterizedTest
+	@CsvFileSource(resources = "unloads_success.csv")
+	@DisplayName("unloading weight under/all current load should return true")
+	void unloadWeightsShouldReturnTrue(double capacity,double loadWeight,double unloadWeight,double currentLoad) {
+		Vehicle vehicle = new Vehicle(capacity);
+		boolean loadResult = vehicle.load(loadWeight);
+		boolean unloadResult = vehicle.unload(unloadWeight);
+		assertAll(
+				() -> assertTrue(loadResult),
+				() -> assertTrue(unloadResult),
+				() -> assertEquals(currentLoad,vehicle.getCurrentLoad())
+		);
+	}
 }
