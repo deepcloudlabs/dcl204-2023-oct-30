@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-public class Customer {
+public final class Customer {
     private final String identityNo;
     private String fullName;
     private final List<Account> accounts = new ArrayList<>();
