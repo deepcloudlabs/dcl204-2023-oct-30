@@ -12,7 +12,7 @@ public class Customer {
 
     // Constructor -> identityNo (getter), fullName(getter/setter)
 
-    public Customer(String identityNo, String fullName) {
+    Customer(String identityNo, String fullName) {
         this.identityNo = identityNo;
         this.fullName = fullName;
     }
