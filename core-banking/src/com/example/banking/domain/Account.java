@@ -4,7 +4,7 @@ public class Account extends Object { // encapsulation: [data + methods]
 	// Members
 	// 1. attribute/state/data/property
 	// Information Hiding Principle
-	private String iban;
+	protected String iban;
 	protected double balance;
 	int accountStatus; // default permission -> package private
 	// 2. Methods
@@ -44,6 +44,7 @@ public class Account extends Object { // encapsulation: [data + methods]
 	}
 
 	public boolean withdraw(double amount) {
+		System.out.println("Account::withdraw");
 		// validation rule
 		if (amount <= 0)
 			return false;
@@ -58,7 +59,10 @@ public class Account extends Object { // encapsulation: [data + methods]
 
 	@Override
 	public String toString() {
-		return "Account [iban=" + iban + ", balance=" + balance + "]";
+		return "Account{" +
+				"iban='" + iban + '\'' +
+				", balance=" + balance +
+				", accountStatus=" + accountStatus +
+				'}';
 	}
-
 }

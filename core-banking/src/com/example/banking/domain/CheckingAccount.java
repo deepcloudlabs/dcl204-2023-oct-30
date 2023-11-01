@@ -16,6 +16,7 @@ public class CheckingAccount extends Account {
 
 	@Override
 	public boolean withdraw(double amount) {
+		System.out.println("CheckingAccount::draw");
 		// Validation Rule
 		if (amount <= 0) return false;
 		// Business Rule
@@ -24,6 +25,12 @@ public class CheckingAccount extends Account {
 		return true;
 	}
 
-
-
+	@Override
+	public String toString() {
+		return "CheckingAccount{" +
+				"overdraftAmount=" + overdraftAmount +
+				", iban='" + iban + '\'' +
+				", balance=" + balance +
+				'}';
+	}
 }
