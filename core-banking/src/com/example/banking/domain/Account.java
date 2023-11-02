@@ -1,5 +1,7 @@
 package com.example.banking.domain;
 
+import java.util.Objects;
+
 public class Account extends Object { // encapsulation: [data + methods]
 	// Members
 	// 1. attribute/state/data/property
@@ -75,6 +77,23 @@ public class Account extends Object { // encapsulation: [data + methods]
 		this.balance = this.balance - amount;
 //		assert this.balance >= 0;
 		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(iban);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Account other = (Account) obj;
+		return Objects.equals(this.iban, other.iban);
 	}
 
 	@Override

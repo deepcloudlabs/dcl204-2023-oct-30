@@ -1,15 +1,15 @@
 package com.example;
 
+import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.LinkedList;
 import java.util.List;
 
 public class StudyList {
 
 	public static void main(String[] args) {
 		// Ordered -> Sortable, Allows duplicates
-//		List<Integer> numbers = new ArrayList<>(); 
-		List<Integer> numbers = new LinkedList<>(); 
+		List<Integer> numbers = new ArrayList<>(1_000_000); 
+//		List<Integer> numbers = new LinkedList<>(); 
 		numbers.add(42);
 		numbers.add(4);
 		numbers.add(15);

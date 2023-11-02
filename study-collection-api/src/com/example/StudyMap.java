@@ -6,7 +6,8 @@ import java.util.Map;
 public class StudyMap {
 
 	public static void main(String[] args) {
-		Map<String, Integer> areaCodes = new HashMap<>();
+		// HashMap, LinkedHashMap, TreeMap, IdentityMap, EnumMap, ConcurrentHashMap, ... 
+		Map<String, Integer> areaCodes = new HashMap<>(1_000_000,0.5f);
 		areaCodes.put("ankara", 312);
 		areaCodes.put("istanbul-anadolu", 216);
 		areaCodes.put("istanbul-avrupa", 212);

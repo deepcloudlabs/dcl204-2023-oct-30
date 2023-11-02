@@ -3,12 +3,13 @@ package com.example.banking.domain;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 
 public final class Bank {
 	private final int bddkId;
 	private String commercialName;
-	private final Map<String,Customer> customers;
+	private final Map<String, Customer> customers;
 
 	// Constructors
 	public Bank(int bddkId, String commercialName) {
@@ -37,7 +38,7 @@ public final class Bank {
 	// business methods:
 	public Customer createCustomer(String identityNo, String fullName) {
 		var customer = new Customer(identityNo, fullName);
-		this.customers.put(identityNo,customer);
+		this.customers.put(identityNo, customer);
 		return customer;
 	}
 
@@ -66,6 +67,23 @@ public final class Bank {
 		if (customer.isPresent())
 			customers.remove(identityNo);
 		return customer;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(bddkId);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Bank other = (Bank) obj;
+		return this.bddkId == other.bddkId;
 	}
 
 }

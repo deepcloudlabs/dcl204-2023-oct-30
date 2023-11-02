@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 
 public class Customer {
@@ -91,4 +92,23 @@ public class Customer {
 		}
 		return totalBalance;
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(identityNo);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Customer other = (Customer) obj;
+		return Objects.equals(identityNo, other.identityNo);
+	}
+	
+	
 }

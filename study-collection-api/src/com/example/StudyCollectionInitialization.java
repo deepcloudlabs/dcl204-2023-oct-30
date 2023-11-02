@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+@SuppressWarnings("unused")
 public class StudyCollectionInitialization {
 
 	public static void main(String[] args) {
