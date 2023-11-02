@@ -1,7 +1,6 @@
 package com.example.banking.domain;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -15,7 +14,7 @@ public final class Bank {
 	public Bank(int bddkId, String commercialName) {
 		this.bddkId = bddkId;
 		this.commercialName = commercialName;
-		customers = new ArrayList<>();
+		customers = new HashMap<>();
 	}
 	// setter/getter
 
@@ -32,32 +31,29 @@ public final class Bank {
 	}
 
 	public List<Customer> getCustomers() {
-		return Collections.unmodifiableList(this.customers);
+		return List.copyOf(customers.values());
 	}
 
 	// business methods:
 	public Customer createCustomer(String identityNo, String fullName) {
 		var customer = new Customer(identityNo, fullName);
-		this.customers.add(customer);
+		this.customers.put(identityNo,customer);
 		return customer;
 	}
 
 	public Optional<Customer> findCustomer(String identityNo) {
-		for (var customer : customers)
-			if (customer.getIdentityNo().equals(identityNo))
-				return Optional.of(customer);
-		return Optional.empty();
+		return Optional.ofNullable(customers.get(identityNo));
 	}
 
 	public double getTotalBalance() {
 		var total = 0.0;
-		for (var customer : customers)
+		for (var customer : customers.values())
 			total += customer.getTotalBalance();
 		return total;
 	}
 
 	public Optional<Account> findAccount(String iban) {
-		for (var customer : customers) {
+		for (var customer : customers.values()) {
 			var account = customer.getAccount(iban);
 			if (account.isPresent())
 				return account;
@@ -68,7 +64,7 @@ public final class Bank {
 	public Optional<Customer> removeCustomer(String identityNo) {
 		var customer = findCustomer(identityNo);
 		if (customer.isPresent())
-			customers.remove(customer.get());
+			customers.remove(identityNo);
 		return customer;
 	}
 
