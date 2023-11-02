@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.example.animals.domain.Animal;
 import com.example.animals.domain.Cat;
+import com.example.animals.domain.Centipede;
 import com.example.animals.domain.Fish;
 import com.example.animals.domain.Spider;
 
@@ -17,7 +18,8 @@ public class Exercise8 {
 	public static void main(String[] args) {
 		// Count the number of species
 		List<Animal> animals = Arrays.asList(new Cat(), new Spider(), new Cat("Tekir"), new Fish("Free Willy"),
-				new Spider(), new Fish("Jaws"));
-		
+				new Spider(), new Fish("Jaws"), new Centipede());
+		var numOfDistinctSpecies = animals.stream().map(Animal::getClass).distinct().count();
+		System.out.println(numOfDistinctSpecies);
 	}
 }
