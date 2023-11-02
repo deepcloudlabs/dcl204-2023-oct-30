@@ -23,7 +23,8 @@ public class Exercise1 {
 		Predicate<Animal> isPet = Pet.class::isInstance;
 		Predicate<Animal> isWild = isPet.negate();
 		var wildAnimals = animals.stream()
-				          .filter(isWild)
+//				          .filter(isWild)
+				.filter(animal -> Pet.class.isInstance(animal))
 				          .toList();
 		System.out.println(wildAnimals);
 	}

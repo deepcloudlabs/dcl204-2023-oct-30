@@ -6,7 +6,7 @@ package com.example.animals.domain;
 public class Centipede extends Animal {
 
 	public Centipede() {
-		super(40);
+		super(8);
 	}
 
 	@Override
