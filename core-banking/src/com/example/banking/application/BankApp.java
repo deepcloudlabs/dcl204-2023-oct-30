@@ -5,9 +5,9 @@ import static com.example.banking.domain.Account.getNumberOfAccounts;
 import com.example.banking.domain.Account;
 import com.example.banking.domain.AccountStatus;
 
-public class BankApp {
+public class BankApp { 
 
-	@SuppressWarnings("static-access")
+	@SuppressWarnings("static-access") 
 	public static void main(String[] args) {
 		System.out.println("Number of accounts: %d".formatted(getNumberOfAccounts()));
 		// -ea -XX:-UseCompressedOops
