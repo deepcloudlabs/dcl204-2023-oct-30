@@ -3,12 +3,13 @@ package com.example.banking.domain;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public final class Bank {
 	private final int bddkId;
 	private String commercialName;
-	private final List<Customer> customers;
+	private final Map<String,Customer> customers;
 
 	// Constructors
 	public Bank(int bddkId, String commercialName) {
