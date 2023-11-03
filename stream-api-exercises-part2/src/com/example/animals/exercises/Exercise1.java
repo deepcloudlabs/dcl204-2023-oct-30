@@ -15,6 +15,7 @@ import com.example.animals.domain.Spider;
  * @author Binnur Kurt <binnur.kurt@gmail.com>
  *
  */
+@SuppressWarnings("unused")
 public class Exercise1 {
 	public static void main(String[] args) {
 		// Take a list of wild animals

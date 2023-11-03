@@ -1,7 +1,6 @@
 package com.example.animals.exercises;
 
 import static java.util.stream.Collectors.groupingBy;
-import static java.util.stream.Collectors.toList;
 
 import java.util.Arrays;
 import java.util.List;

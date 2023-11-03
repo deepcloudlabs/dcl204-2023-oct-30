@@ -13,6 +13,7 @@ import com.example.animals.domain.Spider;
  * @author Binnur Kurt <binnur.kurt@gmail.com>
  *
  */
+@SuppressWarnings("unused")
 public class Exercise5 {
 	public static void main(String[] args) {
 		int i=42; // 4-Byte

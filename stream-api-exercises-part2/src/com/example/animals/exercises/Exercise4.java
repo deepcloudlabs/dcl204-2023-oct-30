@@ -3,7 +3,6 @@ package com.example.animals.exercises;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.stream.IntStream;
 
 import com.example.animals.domain.Animal;
 import com.example.animals.domain.Cat;
