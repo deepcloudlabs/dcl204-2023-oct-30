@@ -1,7 +1,6 @@
 package com.example;
 
 import java.util.HashSet;
-import java.util.Objects;
 
 public class Exercise01 {
 
